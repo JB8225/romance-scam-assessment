@@ -450,8 +450,8 @@ function ResultsPage({ answers, onEmailSubmit }) {
         background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`,
         borderRadius: 12, marginBottom: 14,
       }}>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: GOLD, margin: "0 0 14px 0", fontWeight: 700, letterSpacing: "0.6px" }}>
-          WHAT YOU'LL RECEIVE — FREE
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: GOLD, margin: "0 0 14px 0", fontWeight: 700, letterSpacing: "0.5px", lineHeight: 1.4 }}>
+          NO ONE SHOULD FACE THIS ALONE —<br />SO WE'RE GIVING THIS AWAY
         </p>
 
         <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "16px 18px", marginBottom: 10, borderLeft: `4px solid ${GOLD}` }}>
@@ -493,7 +493,7 @@ function ResultsPage({ answers, onEmailSubmit }) {
           Send me the guides
         </h3>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: "0 0 18px 0" }}>
-          Free. Instant. No account needed.
+          Free. Instant. Delivered to your inbox.
         </p>
         <div style={{ display: "flex", gap: 8, maxWidth: 420, margin: "0 auto" }}>
           <input
@@ -721,7 +721,7 @@ export default function App() {
 
         <div style={{ background: LIGHT_GRAY, padding: "10px 24px", textAlign: "center", borderTop: "1px solid #EBEBEB" }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 10, color: "#AAA", margin: 0, letterSpacing: "0.3px" }}>
-            TheScamHotline.org &nbsp;•&nbsp; 321-No-Scams &nbsp;•&nbsp; Learn · Protect · Recover — Together
+            <a href="https://www.thescamhotline.org" target="_blank" rel="noopener noreferrer" style={{ color: "#AAA", textDecoration: "underline" }}>TheScamHotline.org</a> &nbsp;•&nbsp; 321-No-Scams &nbsp;•&nbsp; Learn · Protect · Recover — Together
           </p>
         </div>
       </div>
