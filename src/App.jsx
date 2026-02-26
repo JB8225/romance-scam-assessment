@@ -665,6 +665,12 @@ export default function App() {
               written for families like yours. <strong style={{ color: GOLD }}>Free.</strong>
             </p>
 
+            {/* Urgency line */}
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: "white", margin: "0 auto 18px", fontWeight: 600, lineHeight: 1.5 }}>
+              Answer 6 questions. Get your guides instantly.<br />
+              <span style={{ color: GOLD }}>You could have this conversation tonight.</span>
+            </p>
+
             {/* Trust badges */}
             <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
               {["Takes 2 minutes", "Free & confidential", "Personalized report"].map((t) => (
