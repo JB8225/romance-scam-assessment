@@ -403,48 +403,56 @@ function ResultsPage({ answers, onEmailSubmit }) {
         <RiskMeter risk={risk} />
       </div>
 
-      {/* Tease */}
+      {/* Guides — the main event */}
       <div style={{
-        padding: "18px 20px",
+        padding: "22px 22px",
         background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`,
-        borderRadius: 12, marginBottom: 14, textAlign: "center",
+        borderRadius: 12, marginBottom: 14,
       }}>
-        <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 17, color: "white", margin: "0 0 8px 0", fontWeight: 700 }}>
-          Your personalized report is ready.
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: GOLD, margin: "0 0 14px 0", fontWeight: 700, letterSpacing: "0.6px" }}>
+          WHAT YOU'LL RECEIVE — FREE
         </p>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#B0BEC5", margin: 0, lineHeight: 1.6 }}>
-          Enter your email and we'll generate a full written report based on your specific answers — plus send you the two free conversation guides.
-        </p>
-      </div>
 
-      {/* What's included */}
-      <div style={{ padding: "16px 18px", background: LIGHT_GRAY, borderRadius: 12, marginBottom: 18 }}>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, fontWeight: 700, color: NAVY, margin: "0 0 10px 0", letterSpacing: "0.3px" }}>
-          YOU'LL RECEIVE:
-        </p>
-        {[
-          "A personalized written concern report — specific to your answers, not a generic template",
-          "5 Questions to Ask Your Parent This Weekend — natural conversations that don't feel like an interrogation",
-          "The Family Conversation Starter — what to say, what NOT to say, and how to handle defensiveness",
-        ].map((item, i) => (
-          <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < 2 ? 7 : 0, alignItems: "flex-start" }}>
-            <span style={{ color: GREEN, fontSize: 13, flexShrink: 0, marginTop: 1 }}>✓</span>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: DARK_GRAY, margin: 0, lineHeight: 1.5 }}>{item}</p>
-          </div>
-        ))}
+        <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "16px 18px", marginBottom: 10, borderLeft: `4px solid ${GOLD}` }}>
+          <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 18, fontWeight: 700, color: "white", margin: "0 0 5px 0", lineHeight: 1.3 }}>
+            ✓ 5 Questions to Ask Your Parent This Weekend
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
+            Natural conversations that open doors without starting arguments or triggering defensiveness.
+          </p>
+        </div>
+
+        <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "16px 18px", marginBottom: 10, borderLeft: `4px solid ${GOLD}` }}>
+          <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 18, fontWeight: 700, color: "white", margin: "0 0 5px 0", lineHeight: 1.3 }}>
+            ✓ The Family Conversation Starter
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
+            Word-for-word scripts. What to say. What NOT to say. How to handle pushback without losing the relationship.
+          </p>
+        </div>
+
+        <div style={{ background: "rgba(255,255,255,0.03)", borderRadius: 10, padding: "12px 16px", borderLeft: "4px solid rgba(255,255,255,0.12)" }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.6)", margin: "0 0 3px 0" }}>
+            ✓ Your personalized concern report
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.35)", margin: 0 }}>
+            Generated from your specific answers — not a generic template.
+          </p>
+        </div>
       </div>
 
       {/* Email capture */}
       <div style={{
-        padding: "24px 22px", borderRadius: 14, textAlign: "center",
-        background: `linear-gradient(135deg, ${NAVY} 0%, #162240 100%)`,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+        padding: "26px 22px", borderRadius: 14, textAlign: "center",
+        background: `linear-gradient(135deg, #0F1B30 0%, #162240 100%)`,
+        boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+        border: `1px solid rgba(212,168,67,0.2)`,
       }}>
-        <h3 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 19, color: "white", margin: "0 0 5px 0" }}>
-          Get Your Free Report + Guides
+        <h3 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 22, color: "white", margin: "0 0 6px 0", lineHeight: 1.3 }}>
+          Send me the guides
         </h3>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#AAAAAA", margin: "0 0 16px 0" }}>
-          Free. Instant. Personalized to what you just told us.
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: "0 0 18px 0" }}>
+          Free. Instant. No account needed.
         </p>
         <div style={{ display: "flex", gap: 8, maxWidth: 420, margin: "0 auto" }}>
           <input
@@ -454,9 +462,9 @@ function ResultsPage({ answers, onEmailSubmit }) {
             onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
             style={{
-              flex: 1, padding: "13px 15px", borderRadius: 8,
+              flex: 1, padding: "15px 15px", borderRadius: 8,
               border: `1px solid ${emailError ? RED : "rgba(255,255,255,0.15)"}`,
-              background: "rgba(255,255,255,0.08)", color: "white", fontSize: 14,
+              background: "rgba(255,255,255,0.08)", color: "white", fontSize: 15,
               fontFamily: "'DM Sans', sans-serif", outline: "none",
             }}
             onFocus={(e) => { e.target.style.borderColor = `${GOLD}60`; }}
@@ -465,15 +473,15 @@ function ResultsPage({ answers, onEmailSubmit }) {
           <button
             onClick={handleSubmit}
             style={{
-              padding: "13px 20px", borderRadius: 8, border: "none",
-              background: GOLD, color: NAVY, fontSize: 14, fontWeight: 700,
+              padding: "15px 22px", borderRadius: 8, border: "none",
+              background: GOLD, color: NAVY, fontSize: 15, fontWeight: 700,
               fontFamily: "'DM Sans', sans-serif", cursor: "pointer",
               whiteSpace: "nowrap", animation: "ctaPulse 2s ease-in-out infinite",
             }}
             onMouseEnter={(e) => { e.target.style.background = GOLD_LIGHT; e.target.style.animation = "none"; }}
             onMouseLeave={(e) => { e.target.style.background = GOLD; e.target.style.animation = "ctaPulse 2s ease-in-out infinite"; }}
           >
-            Generate My Report →
+            Send Me the Guides →
           </button>
         </div>
         {emailError && (
