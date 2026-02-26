@@ -319,21 +319,62 @@ function ResultsPage({ answers, onEmailSubmit }) {
     );
   }
 
+  // Thank you screen — shown when submitted but report failed or still loading
+  if (submitted && !report) {
+    return (
+      <div style={{ animation: "fadeSlideIn 0.5s ease-out", textAlign: "center", padding: "20px 0" }}>
+        <div style={{
+          width: 80, height: 80, borderRadius: "50%",
+          background: `linear-gradient(135deg, ${GREEN}, #2ECC71)`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          margin: "0 auto 22px",
+          boxShadow: `0 8px 32px ${GREEN}40`,
+          fontSize: 34, color: "white",
+        }}>✓</div>
+        <h2 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 26, color: NAVY, margin: "0 0 12px 0", lineHeight: 1.3 }}>
+          You did the right thing.
+        </h2>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: DARK_GRAY, maxWidth: 400, margin: "0 auto 10px", lineHeight: 1.7 }}>
+          The fact that you're here — taking time to look into this, asking the right questions — says everything about how much you love your parent.
+        </p>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: DARK_GRAY, maxWidth: 400, margin: "0 auto 24px", lineHeight: 1.7 }}>
+          Your guides and personalized report are on their way to <strong>{email}</strong>. Check your inbox in the next few minutes.
+        </p>
+        <div style={{ padding: "20px 22px", background: WARNING_BG, borderRadius: 12, borderLeft: `4px solid ${GOLD}`, textAlign: "left", maxWidth: 420, margin: "0 auto 20px" }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: DARK_GRAY, margin: "0 0 10px 0" }}>
+            ⚡ While you wait — 3 things to remember:
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: MED_GRAY, margin: 0, lineHeight: 1.9 }}>
+            1. Read the guides <em>before</em> you say anything to your parent<br />
+            2. Don't use the word "scam" in your first conversation<br />
+            3. Lead with love — not evidence
+          </p>
+        </div>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 auto", maxWidth: 380, lineHeight: 1.6 }}>
+          Questions? Call or text us anytime at <strong style={{ color: NAVY }}>321-No-Scams</strong> or visit <strong style={{ color: NAVY }}>TheScamHotline.org</strong>
+        </p>
+      </div>
+    );
+  }
+
   if (submitted && report) {
     return (
       <div style={{ animation: "fadeSlideIn 0.4s ease-out" }}>
+
+        {/* Thank you header */}
         <div style={{ textAlign: "center", marginBottom: 20 }}>
           <div style={{
-            display: "inline-block", padding: "4px 14px",
-            background: `${GREEN}15`, border: `1px solid ${GREEN}30`,
-            borderRadius: 20, color: GREEN, fontSize: 11, fontWeight: 600,
-            fontFamily: "'DM Sans', sans-serif", letterSpacing: "0.5px", marginBottom: 10,
-          }}>✓ REPORT GENERATED</div>
-          <h2 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 22, color: NAVY, margin: "0 0 4px 0" }}>
-            Your Personalized Report Is Ready
+            width: 60, height: 60, borderRadius: "50%",
+            background: `linear-gradient(135deg, ${GREEN}, #2ECC71)`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            margin: "0 auto 16px", fontSize: 26, color: "white",
+            boxShadow: `0 6px 20px ${GREEN}40`,
+          }}>✓</div>
+          <h2 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 24, color: NAVY, margin: "0 0 8px 0", lineHeight: 1.3 }}>
+            You did the right thing.
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 4px 0" }}>
-            A copy is also on its way to <strong>{email}</strong> along with your free guides.
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: DARK_GRAY, maxWidth: 400, margin: "0 auto 6px", lineHeight: 1.7 }}>
+            The fact that you're here says everything about how much you love your parent. Your guides and report are on their way to <strong>{email}</strong>.
           </p>
         </div>
 
@@ -566,22 +607,75 @@ export default function App() {
             background: `radial-gradient(ellipse at 50% 30%, ${NAVY_LIGHT} 0%, ${NAVY} 60%, ${NAVY_DEEP} 100%)`,
             padding: "30px 28px 0", textAlign: "center",
           }}>
-            <div style={{ width: 88, height: 88, margin: "0 auto 16px", animation: "shieldGlow 3.5s ease-in-out infinite" }}>
-              <img src="/logo.png" alt="The Scam Hotline" style={{ width: 88, height: 88, objectFit: "contain" }} />
+            {/* Logo */}
+            <div style={{ width: 88, height: 88, margin: "0 auto 18px", animation: "shieldGlow 3.5s ease-in-out infinite" }}>
+              <img
+                src="/logo.png"
+                alt="The Scam Hotline"
+                style={{ width: 88, height: 88, objectFit: "contain" }}
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.parentNode.innerHTML = '<div style="width:88px;height:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid rgba(212,168,67,0.5);border-radius:50%;background:rgba(212,168,67,0.08)"><span style=\'font-family:Georgia,serif;font-size:13px;font-weight:700;color:#D4A843;letter-spacing:1px;text-align:center;line-height:1.3\'>THE SCAM<br/>HOTLINE</span></div>';
+                }}
+              />
             </div>
-            <h1 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 25, fontWeight: 700, color: "white", margin: "0 0 10px 0", lineHeight: 1.3 }}>
-              Something feels off.<br />Let's figure out if you're right.
+
+            {/* Label */}
+            <div style={{ display: "inline-block", padding: "4px 14px", marginBottom: 14, background: "rgba(212,168,67,0.12)", border: "1px solid rgba(212,168,67,0.3)", borderRadius: 20 }}>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: GOLD, fontWeight: 700, letterSpacing: "0.8px" }}>
+                FOR FAMILIES WHO SUSPECT SOMETHING IS WRONG
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 26, fontWeight: 700, color: "white", margin: "0 0 14px 0", lineHeight: 1.3 }}>
+              Is someone you love caught<br />in a romance scam?
             </h1>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#B0B8C8", margin: "0 auto 18px", lineHeight: 1.65, maxWidth: 400 }}>
-              Answer 6 questions about what you've noticed. We'll generate a{" "}
-              <strong style={{ color: GOLD }}>personalized written report</strong>{" "}
-              and send you the conversation guides you need — free.
+
+            {/* Body copy */}
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#B0B8C8", margin: "0 auto 18px", lineHeight: 1.75, maxWidth: 420, textAlign: "left" }}>
+              Every year, millions of families watch helplessly as a parent falls for someone they met online — someone who may not even exist. By the time they realize what's happening, the emotional bond is already deep. And the money is already gone.
             </p>
-            <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 22 }}>
+
+            {/* Stats */}
+            <div style={{ display: "flex", gap: 10, marginBottom: 18, textAlign: "left" }}>
+              <div style={{ flex: 1, background: "rgba(255,255,255,0.05)", borderRadius: 10, padding: "12px 14px", borderLeft: `3px solid ${GOLD}` }}>
+                <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 22, color: GOLD, margin: "0 0 3px 0", fontWeight: 700 }}>$1.3B</p>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: "#8899BB", margin: 0, lineHeight: 1.4 }}>stolen through romance scams last year alone</p>
+              </div>
+              <div style={{ flex: 1, background: "rgba(255,255,255,0.05)", borderRadius: 10, padding: "12px 14px", borderLeft: `3px solid ${GOLD}` }}>
+                <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 22, color: GOLD, margin: "0 0 3px 0", fontWeight: 700 }}>$50,000</p>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: "#8899BB", margin: 0, lineHeight: 1.4 }}>average loss per victim — most are over 60</p>
+              </div>
+            </div>
+
+            {/* Differentiator */}
+            <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "14px 16px", marginBottom: 16, textAlign: "left", borderLeft: `3px solid ${GOLD}` }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "white", margin: 0, lineHeight: 1.7 }}>
+                <strong style={{ color: GOLD }}>But here's what most families don't know:</strong> the way you talk to your parent matters more than anything else. The wrong words close the door forever. The right words open it.
+              </p>
+            </div>
+
+            {/* CTA copy */}
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#B0B8C8", margin: "0 auto 16px", lineHeight: 1.7, maxWidth: 420 }}>
+              Answer 6 quick questions and we'll assess your situation — then send you the{" "}
+              <strong style={{ color: "white" }}>exact words to use</strong>, the{" "}
+              <strong style={{ color: "white" }}>questions to ask</strong>, and a{" "}
+              <strong style={{ color: "white" }}>conversation guide</strong>{" "}
+              written for families like yours. <strong style={{ color: GOLD }}>Free.</strong>
+            </p>
+
+            {/* Trust badges */}
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
               {["Takes 2 minutes", "Free & confidential", "Personalized report"].map((t) => (
                 <span key={t} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: GOLD, fontWeight: 500, padding: "5px 11px", borderRadius: 20, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)" }}>✓ {t}</span>
               ))}
             </div>
+
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "rgba(255,255,255,0.4)", margin: "0 0 20px 0", fontStyle: "italic" }}>
+              You're in the right place.
+            </p>
+
             <svg viewBox="0 0 560 26" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 26, marginBottom: -1 }}>
               <path d="M0,13 C140,26 420,0 560,13 L560,26 L0,26 Z" fill="white" />
             </svg>
