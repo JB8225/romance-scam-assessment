@@ -14,6 +14,9 @@ const WARNING_BG = "#FFF8EC";
 
 const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/OI1J52iL4W67IzzVEN0Y/webhook-trigger/d1e0411d-247d-49bd-9457-874717016f26";
 
+// TODO: Replace with your actual SamCart checkout URL for the $9 First Aid Kit
+const SAMCART_URL = "https://your-samcart-url.com/first-aid-kit";
+
 const questions = [
   {
     id: "trigger",
@@ -259,6 +262,148 @@ function ReportDisplay({ reportText }) {
   );
 }
 
+// ── $9 FIRST AID KIT UPSELL ──
+function UpsellSection() {
+  const [dismissed, setDismissed] = useState(false);
+  if (dismissed) return null;
+
+  const stackItems = [
+    { name: "The 48-Hour Action Plan", desc: "Who to call, what to document, how to freeze accounts before more money disappears.", value: "$27" },
+    { name: '"What to Say When They Push Back" Scripts', desc: "Word-for-word responses for the 5 most common defensive reactions.", value: "$19" },
+    { name: "The Financial Freeze Checklist", desc: "Secure bank accounts, credit cards, and wire transfers — even if they won't cooperate yet.", value: "$15" },
+    { name: "The Evidence Collection Guide", desc: "How to quietly build a case for law enforcement or your bank.", value: "$15" },
+  ];
+
+  return (
+    <div style={{
+      marginTop: 24,
+      padding: "28px 24px",
+      background: `linear-gradient(135deg, #FFFFFF 0%, ${LIGHT_GRAY} 100%)`,
+      borderRadius: 14,
+      border: `2px solid ${GOLD}40`,
+      animation: "fadeSlideIn 0.6s ease-out",
+    }}>
+      {/* Bridge */}
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 15, color: DARK_GRAY, margin: "0 0 6px 0", lineHeight: 1.7, textAlign: "center" }}>
+        <strong>Your free guides are on the way.</strong>
+      </p>
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: MED_GRAY, margin: "0 0 20px 0", lineHeight: 1.7, textAlign: "center" }}>
+        But before you go — can I be honest with you for a second?
+      </p>
+
+      {/* Problem agitation */}
+      <div style={{ padding: "16px 20px", background: WARNING_BG, borderRadius: 10, borderLeft: `4px solid ${GOLD}`, marginBottom: 20 }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: DARK_GRAY, margin: 0, lineHeight: 1.8 }}>
+          The guides will help you <strong>start</strong> the conversation. But what happens when your parent gets <em>defensive?</em> What if they've <em>already sent money?</em> What if the scammer is <em>still in their ear?</em>
+        </p>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "10px 0 0 0", lineHeight: 1.6 }}>
+          The free guides don't cover that.
+        </p>
+      </div>
+
+      {/* Product intro */}
+      <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 20, color: NAVY, margin: "0 0 6px 0", textAlign: "center", fontWeight: 700, lineHeight: 1.3 }}>
+        The Scam Recovery First Aid Kit
+      </p>
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 18px 0", textAlign: "center" }}>
+        The emergency playbook for families who need to act <em>now</em>.
+      </p>
+
+      {/* Value stack */}
+      {stackItems.map((item, i) => (
+        <div key={i} style={{
+          display: "flex", gap: 12, marginBottom: 12,
+          padding: "12px 14px", background: "white", borderRadius: 10,
+          border: "1px solid #E8E8E8",
+        }}>
+          <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: `${NAVY}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: NAVY, fontSize: 15, fontWeight: 700 }}>✓</span>
+          </div>
+          <div style={{ flex: 1 }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: DARK_GRAY, margin: "0 0 3px 0", lineHeight: 1.4 }}>
+              {item.name}
+            </p>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: MED_GRAY, margin: 0, lineHeight: 1.5 }}>
+              {item.desc}
+            </p>
+          </div>
+          <div style={{ flexShrink: 0, alignSelf: "center" }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: MED_GRAY, textDecoration: "line-through" }}>{item.value}</span>
+          </div>
+        </div>
+      ))}
+
+      {/* Sally bonus */}
+      <div style={{
+        display: "flex", gap: 12, marginBottom: 20,
+        padding: "12px 14px", background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`, borderRadius: 10,
+      }}>
+        <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: `${GOLD}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ fontSize: 18 }}>🛡</span>
+        </div>
+        <div style={{ flex: 1 }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: "white", margin: "0 0 3px 0", lineHeight: 1.4 }}>
+            24/7 Access to Sally — AI Scam Defense Agent
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
+            Got a question at 2am? Call 321-No-Scams anytime.
+          </p>
+        </div>
+      </div>
+
+      {/* Price anchor */}
+      <div style={{ textAlign: "center", marginBottom: 18 }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 4px 0" }}>
+          Total value: <span style={{ textDecoration: "line-through" }}>$76+</span>
+        </p>
+        <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 32, color: NAVY, margin: "0 0 2px 0", fontWeight: 700 }}>
+          Just $9
+        </p>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: RED, margin: 0, fontWeight: 600 }}>
+          Only available on this page — $29 after you leave
+        </p>
+      </div>
+
+      {/* CTA button */}
+      <a
+        href={SAMCART_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: "block", width: "100%", padding: "16px 0",
+          background: `linear-gradient(135deg, ${GOLD} 0%, ${GOLD_LIGHT} 100%)`,
+          color: NAVY, fontFamily: "'DM Sans', sans-serif", fontSize: 16,
+          fontWeight: 700, textAlign: "center", borderRadius: 10,
+          textDecoration: "none", marginBottom: 10,
+          boxShadow: `0 4px 16px ${GOLD}40`,
+          cursor: "pointer",
+        }}
+      >
+        Get the First Aid Kit — $9 →
+      </a>
+
+      {/* Guarantee */}
+      <div style={{ textAlign: "center", padding: "12px 16px", background: `${GREEN}08`, borderRadius: 8, marginBottom: 10, border: `1px solid ${GREEN}20` }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: DARK_GRAY, margin: 0, lineHeight: 1.6 }}>
+          <strong>100% Money-Back Promise:</strong> If it doesn't give you a clear action plan within 10 minutes, we'll refund every penny.
+        </p>
+      </div>
+
+      {/* Decline */}
+      <p
+        onClick={() => setDismissed(true)}
+        style={{
+          fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: MED_GRAY,
+          textAlign: "center", margin: "8px 0 0 0", cursor: "pointer",
+          textDecoration: "underline", opacity: 0.7,
+        }}
+      >
+        No thanks, the free guides are enough for now.
+      </p>
+    </div>
+  );
+}
+
 function ResultsPage({ answers, onEmailSubmit }) {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -356,6 +501,9 @@ function ResultsPage({ answers, onEmailSubmit }) {
           {" "}or visit{" "}
           <a href="https://www.thescamhotline.org" target="_blank" rel="noopener noreferrer" style={{ color: NAVY, fontWeight: 700, textDecoration: "underline" }}>TheScamHotline.org</a>
         </p>
+
+        {/* $9 First Aid Kit Upsell */}
+        <UpsellSection />
       </div>
     );
   }
@@ -420,6 +568,9 @@ function ResultsPage({ answers, onEmailSubmit }) {
             3. Lead with love — not evidence
           </p>
         </div>
+
+        {/* $9 First Aid Kit Upsell */}
+        <UpsellSection />
       </div>
     );
   }
