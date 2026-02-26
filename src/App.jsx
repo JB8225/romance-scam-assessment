@@ -14,8 +14,7 @@ const WARNING_BG = "#FFF8EC";
 
 const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/OI1J52iL4W67IzzVEN0Y/webhook-trigger/d1e0411d-247d-49bd-9457-874717016f26";
 
-// TODO: Replace with your actual SamCart checkout URL for The Hardest Talk book
-const SAMCART_URL = "https://your-samcart-url.com/the-hardest-talk";
+const SAMCART_URL = "https://thescamhotline.mysamcart.com/The-Talk";
 
 const questions = [
   {
@@ -556,8 +555,9 @@ function ResultsPage({ answers, onEmailSubmit }) {
           {[
             "5 Questions to Ask Your Parent This Weekend",
             "The Family Conversation Starter Guide",
+            "Warning Signs of a Romance Scam Checklist",
           ].map((item, i) => (
-            <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < 1 ? 6 : 0, alignItems: "flex-start" }}>
+            <div key={i} style={{ display: "flex", gap: 8, marginBottom: i < 2 ? 6 : 0, alignItems: "flex-start" }}>
               <span style={{ color: GOLD, fontSize: 13, flexShrink: 0 }}>✓</span>
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: "#CBD5E0", margin: 0, lineHeight: 1.5 }}>{item}</p>
             </div>
@@ -630,6 +630,15 @@ function ResultsPage({ answers, onEmailSubmit }) {
           </p>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
             Word-for-word scripts. What to say. What NOT to say. How to handle pushback without losing the relationship.
+          </p>
+        </div>
+
+        <div style={{ background: "rgba(255,255,255,0.06)", borderRadius: 10, padding: "16px 18px", marginBottom: 10, borderLeft: `4px solid ${GOLD}` }}>
+          <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 18, fontWeight: 700, color: "white", margin: "0 0 5px 0", lineHeight: 1.3 }}>
+            ✓ Warning Signs of a Romance Scam Checklist
+          </p>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
+            Use this quietly. Check every box that applies. 3 or more means it's time to act.
           </p>
         </div>
 
