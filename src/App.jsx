@@ -351,7 +351,10 @@ function ResultsPage({ answers, onEmailSubmit }) {
           </p>
         </div>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 auto", maxWidth: 380, lineHeight: 1.6 }}>
-          Questions? Call or text us anytime at <strong style={{ color: NAVY }}>321-No-Scams</strong> or visit <strong style={{ color: NAVY }}>TheScamHotline.org</strong>
+          Questions? Call or text us anytime at{" "}
+          <a href="tel:321-667-2267" style={{ color: NAVY, fontWeight: 700, textDecoration: "none" }}>321-No-Scams</a>
+          {" "}or visit{" "}
+          <a href="https://www.thescamhotline.org" target="_blank" rel="noopener noreferrer" style={{ color: NAVY, fontWeight: 700, textDecoration: "underline" }}>TheScamHotline.org</a>
         </p>
       </div>
     );
