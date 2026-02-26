@@ -14,8 +14,8 @@ const WARNING_BG = "#FFF8EC";
 
 const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/OI1J52iL4W67IzzVEN0Y/webhook-trigger/d1e0411d-247d-49bd-9457-874717016f26";
 
-// TODO: Replace with your actual SamCart checkout URL for the $9 First Aid Kit
-const SAMCART_URL = "https://your-samcart-url.com/first-aid-kit";
+// TODO: Replace with your actual SamCart checkout URL for The Hardest Talk book
+const SAMCART_URL = "https://your-samcart-url.com/the-hardest-talk";
 
 const questions = [
   {
@@ -262,16 +262,18 @@ function ReportDisplay({ reportText }) {
   );
 }
 
-// ── $9 FIRST AID KIT UPSELL ──
+// ── THE HARDEST TALK BOOK UPSELL ──
 function UpsellSection() {
   const [dismissed, setDismissed] = useState(false);
   if (dismissed) return null;
 
-  const stackItems = [
-    { name: "The 48-Hour Action Plan", desc: "Who to call, what to document, how to freeze accounts before more money disappears.", value: "$27" },
-    { name: '"What to Say When They Push Back" Scripts', desc: "Word-for-word responses for the 5 most common defensive reactions.", value: "$19" },
-    { name: "The Financial Freeze Checklist", desc: "Secure bank accounts, credit cards, and wire transfers — even if they won't cooperate yet.", value: "$15" },
-    { name: "The Evidence Collection Guide", desc: "How to quietly build a case for law enforcement or your bank.", value: "$15" },
+  const chapters = [
+    { name: "The Psychology of Grooming", desc: "Understand why your parent fell for it — and why shame makes everything worse." },
+    { name: "How to Start the Conversation", desc: "The exact approach that opens the door without triggering defensiveness." },
+    { name: "Scripts for When They Push Back", desc: "Word-for-word responses for \"You don't understand,\" \"It's my money,\" and \"We're in love.\"" },
+    { name: "If They've Already Sent Money", desc: "The first 24-hour action plan: who to call, what to freeze, how to document everything." },
+    { name: "When They Want to Keep Sending", desc: "How to intervene without destroying the relationship — even when denial is strong." },
+    { name: "The Grief Process", desc: "They're not just losing money — they're losing a relationship they believed was real. How to help them heal." },
   ];
 
   return (
@@ -294,73 +296,78 @@ function UpsellSection() {
       {/* Problem agitation */}
       <div style={{ padding: "16px 20px", background: WARNING_BG, borderRadius: 10, borderLeft: `4px solid ${GOLD}`, marginBottom: 20 }}>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: DARK_GRAY, margin: 0, lineHeight: 1.8 }}>
-          The guides will help you <strong>start</strong> the conversation. But what happens when your parent gets <em>defensive?</em> What if they've <em>already sent money?</em> What if the scammer is <em>still in their ear?</em>
+          The free guides will help you <strong>start</strong> the conversation. But starting the conversation is only step one.
+        </p>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: DARK_GRAY, margin: "12px 0 0 0", lineHeight: 1.8 }}>
+          What happens when your parent says <em>"You don't understand our relationship"</em>? What if they've <em>already sent money</em>? What if the scammer is <em>still in their ear</em> and they won't listen?
         </p>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "10px 0 0 0", lineHeight: 1.6 }}>
-          The free guides don't cover that.
+          The free guides don't cover that. This book does.
         </p>
       </div>
 
       {/* Product intro */}
-      <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 20, color: NAVY, margin: "0 0 6px 0", textAlign: "center", fontWeight: 700, lineHeight: 1.3 }}>
-        The Scam Recovery First Aid Kit
+      <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 22, color: NAVY, margin: "0 0 4px 0", textAlign: "center", fontWeight: 700, lineHeight: 1.3 }}>
+        The Hardest Talk You'll Ever Have
       </p>
-      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 18px 0", textAlign: "center" }}>
-        The emergency playbook for families who need to act <em>now</em>.
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: MED_GRAY, margin: "0 0 6px 0", textAlign: "center", fontStyle: "italic" }}>
+        Saving Your Parent from an Online Romance Scam
+      </p>
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 20px 0", textAlign: "center" }}>
+        The complete 10-chapter guide with scripts, action plans, and everything you need — from the first conversation to full recovery.
       </p>
 
-      {/* Value stack */}
-      {stackItems.map((item, i) => (
+      {/* Chapter stack */}
+      {chapters.map((ch, i) => (
         <div key={i} style={{
-          display: "flex", gap: 12, marginBottom: 12,
+          display: "flex", gap: 12, marginBottom: 10,
           padding: "12px 14px", background: "white", borderRadius: 10,
           border: "1px solid #E8E8E8",
         }}>
-          <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: `${NAVY}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: NAVY, fontSize: 15, fontWeight: 700 }}>✓</span>
+          <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: "50%", background: `${NAVY}10`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ color: NAVY, fontSize: 13, fontWeight: 700 }}>{String(i + 1).padStart(2, "0")}</span>
           </div>
           <div style={{ flex: 1 }}>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: DARK_GRAY, margin: "0 0 3px 0", lineHeight: 1.4 }}>
-              {item.name}
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: DARK_GRAY, margin: "0 0 2px 0", lineHeight: 1.4 }}>
+              {ch.name}
             </p>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: MED_GRAY, margin: 0, lineHeight: 1.5 }}>
-              {item.desc}
+              {ch.desc}
             </p>
-          </div>
-          <div style={{ flexShrink: 0, alignSelf: "center" }}>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: MED_GRAY, textDecoration: "line-through" }}>{item.value}</span>
           </div>
         </div>
       ))}
 
-      {/* Sally bonus */}
+      {/* Bonus: Sally */}
       <div style={{
-        display: "flex", gap: 12, marginBottom: 20,
+        display: "flex", gap: 12, marginTop: 4, marginBottom: 20,
         padding: "12px 14px", background: `linear-gradient(135deg, ${NAVY} 0%, ${NAVY_LIGHT} 100%)`, borderRadius: 10,
       }}>
-        <div style={{ flexShrink: 0, width: 40, height: 40, borderRadius: "50%", background: `${GOLD}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ fontSize: 18 }}>🛡</span>
+        <div style={{ flexShrink: 0, width: 36, height: 36, borderRadius: "50%", background: `${GOLD}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <span style={{ fontSize: 16 }}>🛡</span>
         </div>
         <div style={{ flex: 1 }}>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: "white", margin: "0 0 3px 0", lineHeight: 1.4 }}>
-            24/7 Access to Sally — AI Scam Defense Agent
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 700, color: "white", margin: "0 0 2px 0", lineHeight: 1.4 }}>
+            BONUS: 24/7 Access to Sally — AI Scam Defense Agent
           </p>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: "#9EB3CC", margin: 0, lineHeight: 1.5 }}>
-            Got a question at 2am? Call 321-No-Scams anytime.
+            Got a question at 2am? Call 321-No-Scams. Sally walks you through your next move in real time.
           </p>
         </div>
       </div>
 
+      {/* Social proof line */}
+      <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: DARK_GRAY, margin: "0 0 16px 0", textAlign: "center", lineHeight: 1.6 }}>
+        Written by JB Bouck, founder of The Scam Hotline — built from real conversations with families going through this right now.
+      </p>
+
       {/* Price anchor */}
       <div style={{ textAlign: "center", marginBottom: 18 }}>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, color: MED_GRAY, margin: "0 0 4px 0" }}>
-          Total value: <span style={{ textDecoration: "line-through" }}>$76+</span>
-        </p>
-        <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 32, color: NAVY, margin: "0 0 2px 0", fontWeight: 700 }}>
-          Just $9
+        <p style={{ fontFamily: "'Libre Caslon Text', 'Georgia', serif", fontSize: 34, color: NAVY, margin: "0 0 2px 0", fontWeight: 700 }}>
+          $9
         </p>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: RED, margin: 0, fontWeight: 600 }}>
-          Only available on this page — $29 after you leave
+          Only available at this price on this page
         </p>
       </div>
 
@@ -379,13 +386,13 @@ function UpsellSection() {
           cursor: "pointer",
         }}
       >
-        Get the First Aid Kit — $9 →
+        Get The Hardest Talk — $9 →
       </a>
 
       {/* Guarantee */}
       <div style={{ textAlign: "center", padding: "12px 16px", background: `${GREEN}08`, borderRadius: 8, marginBottom: 10, border: `1px solid ${GREEN}20` }}>
         <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: DARK_GRAY, margin: 0, lineHeight: 1.6 }}>
-          <strong>100% Money-Back Promise:</strong> If it doesn't give you a clear action plan within 10 minutes, we'll refund every penny.
+          <strong>100% Money-Back Promise:</strong> If this book doesn't give you a clear plan to protect your parent, we'll refund every penny. No questions.
         </p>
       </div>
 
